@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yeşil Döngü Bursa | Kestane Kabuğu ve Siyah İncir Posasından Biyomalzeme</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- MathJax for LaTeX Formulas -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        forest: {
+                            50: '#f2f7f4',
+                            100: '#dfede5',
+                            200: '#c0dbcd',
+                            300: '#95c1ac',
+                            400: '#67a287',
+                            500: '#46866a',
+                            600: '#346b53',
+                            700: '#2a5644',
+                            800: '#234537',
+                            900: '#1d392e',
+                            950: '#0f2019',
+                        },
+                        chestnut: {
+                            50: '#faf6f2',
+                            100: '#f3eae0',
+                            200: '#e5d2be',
+                            300: '#d4b394',
+                            400: '#c19068',
+                            500: '#b37649',
+                            600: '#a5623d',
+                            700: '#894d34',
+                            800: '#704030',
+                            900: '#5b3629',
+                        },
+                        fig: {
+                            50: '#faf6fa',
+                            100: '#f4ebf4',
+                            200: '#e9d6e9',
+                            300: '#d7b5d6',
+                            400: '#be89bd',
+                            500: '#a464a2',
+                            600: '#884986',
+                            700: '#70396e',
+                            800: '#5d315b',
+                            900: '#4e2b4c',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .organic-pattern {
+            background-image: radial-gradient(#346b53 0.75px, transparent 0.75px), radial-gradient(#b37649 0.75px, #faf6f2 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-forest-600 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 transition-all shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-forest-700 to-chestnut-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform shrink-0">
+                        <i data-lucide="sprout" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <span class="font-bold text-sm sm:text-lg tracking-tight text-forest-950 block leading-tight">Yeşil Döngü Bursa</span>
+                        <span class="text-[10px] sm:text-[11px] font-medium text-chestnut-700 tracking-wider uppercase block">Biyoekonomi Projesi</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-stone-600">
+                    <a href="#ozet" class="hover:text-forest-700 transition-colors">Proje Özeti</a>
+                    <a href="#problem-amac" class="hover:text-forest-700 transition-colors">Amaç & Hipotezler</a>
+                    <a href="#yontem" class="hover:text-forest-700 transition-colors">Yeşil Üretim</a>
+                    <a href="#bulgular" class="hover:text-forest-700 transition-colors">Karakterizasyon</a>
+                    <a href="#biyomalc" class="hover:text-forest-700 transition-colors">Biyomalç & Döngü</a>
+                    <a href="#kaynakca" class="px-4 py-2 rounded-full bg-forest-800 text-white hover:bg-forest-700 transition-all shadow-sm">Kaynakça</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-stone-700 hover:bg-stone-100 focus:outline-none" aria-label="Menüyü Aç">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-stone-200 px-6 py-5 space-y-3 text-base font-semibold shadow-xl">
+            <a href="#ozet" class="block py-2 text-stone-800 hover:text-forest-700 border-b border-stone-100">Proje Özeti</a>
+            <a href="#problem-amac" class="block py-2 text-stone-800 hover:text-forest-700 border-b border-stone-100">Amaç & Hipotezler</a>
+            <a href="#yontem" class="block py-2 text-stone-800 hover:text-forest-700 border-b border-stone-100">Yeşil Üretim Süreci</a>
+            <a href="#bulgular" class="block py-2 text-stone-800 hover:text-forest-700 border-b border-stone-100">Bulgular & Karakterizasyon</a>
+            <a href="#biyomalc" class="block py-2 text-stone-800 hover:text-forest-700 border-b border-stone-100">Biyomalç & Toprak Döngüsü</a>
+            <a href="#kaynakca" class="block py-2 text-forest-700 font-bold">Akademik Kaynakça</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden bg-forest-950 text-white">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="Agricultural waste bio-extract macro photograph – 26 Nov 2026, 11.13 am (1).png" alt="Uludağ Eteklerinde Biyobozunur Malç Tarlası" class="w-full h-full object-cover opacity-35 mix-blend-luminosity scale-105">
+            <div class="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/90 to-forest-900/70"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-forest-800/80 border border-forest-600/50 text-forest-200 text-xs font-semibold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        BURSA YEREL TARIMSAL ATIKLARININ İLERİ DÖNÜŞÜMÜ
+                    </div>
+                    
+                    <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+                        Kestane Kabuğu ve Siyah İncir Posasından <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-chestnut-300 to-emerald-300">Biyobozunur Ambalaj ve Tarımsal Malç</span>
+                    </h1>
+                    
+                    <p class="text-base sm:text-lg text-stone-300 leading-relaxed max-w-2xl">
+                        Petrokimyasal plastiklerin neden olduğu mikroplastik kirliliğine ve yüksek karbon ayak izine karşı; Bursa'nın simge tarımsal atıklarını yeşil ekstraksiyon yöntemleriyle katma değerli, doğada %100 çözünebilen biyopolimerik malzemelere dönüştürüyoruz.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#ozet" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-950/50">
+                            Projeyi İncele
+                            <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#biyomalc" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold backdrop-blur-sm transition-all">
+                            <i data-lucide="recycle" class="w-4 h-4 text-emerald-300"></i>
+                            Toprak İçi Biyobozunma
+                        </a>
+                    </div>
+
+                    <!-- Keywords Pills -->
+                    <div class="pt-4 border-t border-white/10">
+                        <p class="text-xs text-stone-400 uppercase tracking-wider mb-2.5 font-semibold">Anahtar Kelimeler</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-stone-200">Biyobozunur Ambalaj</span>
+                            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-stone-200">Tarımsal Malç</span>
+                            <span class="px-3 py-1 rounded-md bg-chestnut-900/60 border border-chestnut-500/30 text-xs text-chestnut-200">Kestane Kabuğu</span>
+                            <span class="px-3 py-1 rounded-md bg-fig-900/60 border border-fig-500/30 text-xs text-fig-200">Siyah İncir Posası</span>
+                            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-stone-200">Yeşil Ekstraksiyon (UAE)</span>
+                            <span class="px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-stone-200">Döngüsel Biyoekonomi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right Showcase Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-forest-900/60 backdrop-blur-md p-3">
+                        <img src="Agricultural waste bio-extract macro photograph – 26 Nov 2026, 11.11 am.png" alt="Kestane kabuğu, siyah incir posası ve biyo-ekstrakt" class="w-full h-80 sm:h-96 object-cover rounded-xl">
+                        <div class="p-4 bg-forest-950/90 rounded-xl mt-3 border border-white/10">
+                            <div class="flex items-center justify-between text-xs text-emerald-400 font-semibold mb-1">
+                                <span>GÖRSEL 1: HAMMADDE & BİYO-EKSTRAKT</span>
+                                <span>UAE YÖNTEMİ</span>
+                            </div>
+                            <p class="text-xs text-stone-300 leading-relaxed">
+                                Bursa yöresine ait lignoselülozik kestane kabukları, siyah incir posası ve ultrason destekli ekstraksiyon (UAE) ile elde edilen berrak, polifenol zengini kehribar sıvı biyo-ekstrakt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. PROJE ÖZETİ & HIZLI METRİKLER -->
+    <section id="ozet" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center mb-14">
+                <span class="text-xs font-bold tracking-widest uppercase text-forest-600">01 / PROJE ÖZETİ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Yerel Tarımsal Yan Ürünlerden Yüksek Katma Değerli Biyokompozitler</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-14">
+                <div class="p-7 rounded-2xl bg-chestnut-50 border border-chestnut-200/70 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-chestnut-600 text-white flex items-center justify-center mb-5">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-chestnut-900 mb-2">Kestane Kabuğu Lifleri</h3>
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        Odunsu lignoselülozik lif yapısı mikronize edilerek biyopolimer matrise entegre edilmiş; filmin mekanik çekme mukavemetini ve su direncini güçlendirmiştir.
+                    </p>
+                </div>
+
+                <div class="p-7 rounded-2xl bg-fig-50 border border-fig-200/70 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-fig-700 text-white flex items-center justify-center mb-5">
+                        <i data-lucide="droplets" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-fig-900 mb-2">Siyah İncir Posası Ekstraktı</h3>
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        Zengin polifenol ve flavonoid içeriği yeşil UAE yöntemiyle geri kazanılmış; matrise ikincil hidrojen bağları üzerinden esneklik ve güçlü antioksidan kapasite kazandırmıştır.
+                    </p>
+                </div>
+
+                <div class="p-7 rounded-2xl bg-forest-50 border border-forest-200/70 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-forest-700 text-white flex items-center justify-center mb-5">
+                        <i data-lucide="leaf" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-forest-900 mb-2">Biyopolimer Matris & Malç</h3>
+                    <p class="text-sm text-stone-700 leading-relaxed">
+                        Buğday/patates termoplastik nişastası, kitosan ve zein matrislerinde döküm ve ekstrüzyon ile sentezlenen filmler, sezon sonunda söküm gerektirmeden organik hümusa dönüşür.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Detailed Abstract Box -->
+            <div class="bg-stone-50 rounded-3xl p-8 sm:p-10 border border-stone-200 shadow-inner">
+                <div class="grid lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
+                        <p>
+                            Bu çalışmada, Bursa yöresine ait tarımsal sanayi atıklarından <strong>kestane kabuğu</strong> ve <strong>siyah incir posasının</strong> katma değerli biyopolimerik ambalaj filmi ve tarımsal malç yapısına dönüştürülmesi amaçlanmıştır. Bileşenlerin geri kazanımında yeşil ekstraksiyon yaklaşımlarından <strong>ultrason destekli ekstraksiyon (UAE)</strong> ve <strong>liyofilizasyon (dondurarak kurutma)</strong> ön işlemlerinden yararlanılmıştır.
+                        </p>
+                        <p>
+                            Karakterizasyon süreçlerinde Folin-Ciocalteu ve spektrofotometrik $\text{AlCl}_3$ ($510\text{ nm}$) yöntemleriyle toplam fenolik ($\text{mg GAE/g KM}$) ve toplam flavonoid ($\text{mg QE/g KM}$) içerikleri tanımlanmış, $517\text{ nm}$ absorbans ölçümleriyle $\%$ DPPH serbest radikal süpürme kapasitesi analiz edilmiştir. Geliştirilen malç filmlerinin ticari Mater-Bi ve geleneksel polietilen (PE) malçlar ile karşılaştırılmasında; ürünün standart tarım ekipmanlarıyla serilebildiği, sezonsal koruma sağladıktan sonra topraktan söküm gerektirmeksizin mikrobiyal hidroliz ile <strong>suya, $\text{CO}_2$'ye ve organik hümusa</strong> dönüştüğü belirlenmiştir.
+                        </p>
+                    </div>
+                    <div class="lg:col-span-4 bg-white p-6 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                        <h4 class="font-bold text-stone-900 text-sm uppercase tracking-wider border-b border-stone-100 pb-2">Teknik Hedef Parametreler</h4>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-stone-500">Hedef Film Kalınlığı:</span>
+                            <span class="font-bold text-forest-800">0,15 – 0,30 mm</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-stone-500">UAE Sıcaklık / Süre:</span>
+                            <span class="font-bold text-forest-800">40–60 °C / 15–45 dk</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-stone-500">Ultrasonik Güç:</span>
+                            <span class="font-bold text-forest-800">%40 – %80</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm">
+                            <span class="text-stone-500">Söküm İşçiliği Maliyeti:</span>
+                            <span class="font-bold text-emerald-600">Sıfır (Toprakta Çözünür)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. GİRİŞ, PROBLEM DURUMU, ÖZGÜN DEĞER VE HİPOTEZLER -->
+    <section id="problem-amac" class="py-20 bg-stone-50 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14">
+                <span class="text-xs font-bold tracking-widest uppercase text-chestnut-700">02 / GİRİŞ VE AMAÇ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Çevresel Soruna Bilimsel ve Yerel Çözüm</h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10 mb-16">
+                <!-- Problem Durumu -->
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold">
+                        <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+                        2.1. Problem Durumu ve Motivasyon
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-900">Mikroplastik Kirliliği ve Atık İsrafı</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Geleneksel petrokimyasal esaslı ambalaj malzemeleri ve polietilen (PE) tarımsal malç filmleri, doğada yüzyıllarca bozunmadan kalarak toprak ekosistemlerinde mikroplastik birikimine yol açmaktadır. Sezon sonunda sentetik plastik malçların tek tek sökülmesi yüksek iş gücü ve ekonomik maliyet doğururken, toprakta kalan parçalar su geçirgenliğini engellemektedir.
+                    </p>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        Diğer taraftan Bursa yöresinde rekoltesi yüksek olan <strong>kestane kabuğu</strong> ve <strong>siyah incir posası</strong> çoğunlukla yakılmakta veya çürümeye bırakılmaktadır (Queirós vd., 2020). Bu durum selüloz, hemiselüloz, lignin, polifenol ve flavonoid gibi değerli biyomoleküllerin ziyan olmasına neden olmaktadır.
+                    </p>
+                </div>
+
+                <!-- Özgün Değer -->
+                <div class="bg-forest-900 text-white p-8 rounded-2xl shadow-lg space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                        2.2. Projenin Özgün Değerleri
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Sinerjik Formülasyon ve Sıfır Atık</h3>
+                    <ul class="space-y-4 text-sm text-stone-200">
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">1</span>
+                            <span><strong>İkili Yerel Sinerji:</strong> Sert odunsu kestane kabuğu ile yumuşak meyve yapısındaki siyah incir posasının tek bir biyokompozit formülasyonda birleştirilmesi.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">2</span>
+                            <span><strong>Toksik Çözücü İçermeyen Proses:</strong> Ultrasonik yoğunlaştırma (UAE) ve doğal derin ötektik çözücüler (NADES) ile yüksek verimli yeşil ekstraksiyon (Chemat vd., 2017).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">3</span>
+                            <span><strong>Toprağı Besleyen Malç:</strong> Söküm işçiliği gerektirmeden mikrobiyal hidrolizle bozunurken bünyesindeki biyoaktif polifenolleri toprağa aktararak organik zenginleşme sağlaması.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Hipotezler ve Araştırma Soruları -->
+            <div class="bg-white rounded-3xl p-8 border border-stone-200 shadow-sm">
+                <h3 class="font-serif text-2xl font-bold text-stone-900 mb-6 flex items-center gap-2.5">
+                    <i data-lucide="flask-conical" class="w-6 h-6 text-forest-700"></i>
+                    Proje Hipotezleri ve Araştırma Soruları
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-5 rounded-xl bg-forest-50/70 border border-forest-200">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-forest-700">Hipotez 1 (H1) — Mekanik & Yapısal Sinerji</span>
+…                            Siyah incir posası ve kestane ekstraktları, biyokompozit matrise yüksek DPPH serbest radikal süpürme kapasitesi ve flavonoid içeriği kazandırarak antioksidan işlevsellik sağlar.
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-stone-50 border border-stone-200">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-chestnut-700">Araştırma Sorusu 1</span>
+                        <p class="text-sm text-stone-700 mt-2 leading-relaxed">
+                            Ön işlem olarak uygulanan farklı kurutma ve öğütme tekniklerinin gıda posalarında ve lif matrisinde oluşturduğu mikroyapısal değişimler, filmlerin hidrasyon ve fizikokimyasal dengesini nasıl etkiler?
+                        </p>
+                    </div>
+                    <div class="p-5 rounded-xl bg-stone-50 border border-stone-200">
+                        <span class="text-xs font-extrabold uppercase tracking-wider text-chestnut-700">Araştırma Sorusu 2</span>
+                        <p class="text-sm text-stone-700 mt-2 leading-relaxed">
+                            Üretilen biyokompozit malç numunelerinin toprak içi ayrışma hızı ve ekolojik uyumu ticari standartları karşılamakta mıdır?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. MATERYAL VE YÖNTEM (İnteraktif Süreç Adımları + Görsel 1 & Laboratuvar Döküm Görseli) -->
+    <section id="yontem" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14">
+                <span class="text-xs font-bold tracking-widest uppercase text-forest-600">03 / MATERYAL VE YÖNTEM</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Yeşil Ekstraksiyon ve Biyokompozit Sentez Hattı</h2>
+                <p class="text-stone-600 mt-3 text-sm sm:text-base">
+                    Bursa'daki yerel üreticilerden temin edilen atıkların ön işlemden geçirilerek esnek biyopolimer filmlere dönüştürülme aşamaları.
+                </p>
+            </div>
+
+            <!-- Interactive Process Tabs -->
+            <div class="grid lg:grid-cols-12 gap-10 items-start">
+                <div class="lg:col-span-6 space-y-4">
+                    <!-- Step 1 -->
+                    <div class="p-6 rounded-2xl border-2 border-forest-600 bg-forest-50/40 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 rounded-lg bg-forest-700 text-white font-bold flex items-center justify-center text-sm">01</span>
+                            <h3 class="font-bold text-lg text-stone-900">Hammadde Ön İşlemleri: Kurutma & Öğütme</h3>
+                        </div>
+                        <p class="text-sm text-stone-700 leading-relaxed">
+                            Konvektif fırınlamaya kıyasla <strong>vakumlu dondurarak kurutma (liyofilizasyon)</strong> ve mikrodalga destekli vakum kurutma hücresel gözenek yapısını koruyarak büzüşmeyi engeller. Kurutulan materyaller bilyalı değirmenlerde öğütülerek spesifik lif yüzey alanı optimize edilir.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-6 rounded-2xl border border-stone-200 bg-white hover:border-chestnut-400 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 rounded-lg bg-chestnut-600 text-white font-bold flex items-center justify-center text-sm">02</span>
+                            <h3 class="font-bold text-lg text-stone-900">Ultrason Destekli Yeşil Ekstraksiyon (UAE)</h3>
+                        </div>
+                        <p class="text-sm text-stone-700 leading-relaxed">
+                            Toksik organik çözücüler kullanılmadan sulu ortamda <strong>40–60 °C sıcaklık</strong>, <strong>15–45 dakika süre</strong> ve <strong>%40–80 ultrasonik güç</strong> parametrelerinde polifenol ve flavonoidlerce zengin tortusuz biyo-ekstrakt elde edilir.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-6 rounded-2xl border border-stone-200 bg-white hover:border-fig-400 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 rounded-lg bg-fig-700 text-white font-bold flex items-center justify-center text-sm">03</span>
+                            <h3 class="font-bold text-lg text-stone-900">Polimer Matris Hazırlığı ve Lif Entegrasyonu</h3>
+                        </div>
+                        <p class="text-sm text-stone-700 leading-relaxed">
+                            Buğday/patates termoplastik nişastası, kitosan (zayıf asetik asit çözeltisinde) ve zein biyopolimerleri homojenize edilir. Karışıma siyah incir posası ekstraktı ve mikronize kestane kabuğu lignoselülozik lifleri eklenir.
+                        </p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="p-6 rounded-2xl border border-stone-200 bg-white hover:border-forest-400 transition-all">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="w-8 h-8 rounded-lg bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">04</span>
+                            <h3 class="font-bold text-lg text-stone-900">Plastikleştirme ve Döküm / Ekstrüzyon</h3>
+                        </div>
+                        <p class="text-sm text-stone-700 leading-relaxed">
+                            Poliol bazlı biyoplastikleştirici (gliserol) ilavesinin ardından solvent döküm (casting) ve ekstrüzyon teknikleriyle <strong>0,15 – 0,30 mm</strong> hedef kalınlığında esnek biyobozunur filmler sentezlenir.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual Lab Casting Showcase -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="rounded-2xl overflow-hidden border border-stone-200 shadow-lg bg-stone-50">
+                        <img src="Agricultural waste bio-extract macro photograph – 26 Nov 2026, 11.12 am.png" alt="Laboratuvarda Biyopolimer Film Dökümü (Solvent Casting)" class="w-full h-96 object-cover">
+                        <div class="p-6 bg-white">
+                            <span class="text-xs font-bold uppercase tracking-wider text-forest-700">LABORATUVAR SENTEZ AŞAMASI</span>
+                            <h4 class="font-bold text-stone-900 text-base mt-1">Solvent Döküm (Casting) Tekniği ile Film Oluşumu</h4>
+                            <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                                Kestane kabuğu mikronize lifleri ve siyah incir posası polifenolleri ile zenginleştirilmiş termoplastik nişasta/kitosan çözeltisinin homojen akışkanlığı, kalıba döküm sırasında kabarcıksız ve tekdüze film tabakası oluşturulmasını sağlar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. BULGULAR VE KARAKTERİZASYON -->
+    <section id="bulgular" class="py-20 bg-stone-50 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14">
+                <span class="text-xs font-bold tracking-widest uppercase text-fig-800">04 / BULGULAR VE KARAKTERİZASYON</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Biyoaktif Kapasite, Fizikokimyasal Denge ve Mekanik Dayanım</h2>
+            </div>
+
+            <!-- 4.1 Biyoaktif Analiz Kartları ve DPPH Formülü -->
+            <div class="grid lg:grid-cols-3 gap-6 mb-14">
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-amber-50 text-amber-800 text-xs font-bold">TFM ANALİZİ</span>
+                        <i data-lucide="test-tube-2" class="w-5 h-5 text-amber-600"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 text-lg">Toplam Fenolik Madde</h3>
+                    <p class="text-xs text-stone-500 mt-1">Folin-Ciocalteu Spektrofotometrik Metodu</p>
+                    <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+                        Gallik asit eşdeğeri ($\text{mg GAE/g KM}$) cinsinden hesaplanmış; kestane kabuğu ve siyah incir posası ekstrelerinin matrise yüksek oranda fenolik bileşik kazandırdığı tespit edilmiştir.
+                    </p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-fig-50 text-fig-800 text-xs font-bold">TFV ANALİZİ (510 nm)</span>
+                        <i data-lucide="activity" class="w-5 h-5 text-fig-600"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 text-lg">Toplam Flavonoid Madde</h3>
+                    <p class="text-xs text-stone-500 mt-1">Kim vd. (2003) $\text{AlCl}_3$ Yöntemi</p>
+                    <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+                        $1\text{ mL}$ ekstrakta $\%5\text{ NaNO}_2$, $\%10\text{ AlCl}_3\cdot 6\text{H}_2\text{O}$ ve $1\text{ M NaOH}$ ilavesi sonrası $510\text{ nm}$ UV-Vis ölçümü ile $\text{mg QE/g KM}$ olarak belirlenmiştir.
+                    </p>
+                </div>
+
+                <div class="bg-forest-900 text-white p-6 rounded-2xl shadow-md">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-500/20 text-emerald-300 text-xs font-bold">ANTİOKSİDAN (517 nm)</span>
+                        <i data-lucide="shield-check" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg">DPPH Radikal Süpürme</h3>
+                    <div class="my-3 p-3 rounded-xl bg-forest-950/80 border border-white/10 text-center overflow-x-auto text-xs sm:text-sm">
+                        $$\text{DPPH İnhibisyonu (\%)} = \left( \frac{A_{\text{kontrol}} - A_{\text{örnek}}}{A_{\text{kontrol}}} \right) \times 100$$
+                    </div>
+                    <p class="text-xs text-stone-300 leading-relaxed">
+                        Siyah incir posası polifenolleri ile zenginleştirilen filmlerde yüksek serbest radikal süpürme inhibisyonu kaydedilmiştir.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4.2 Tablo 4.1: Kurutma ve Öğütme Parametreleri -->
+            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden mb-16">
+                <div class="p-6 sm:p-8 border-b border-stone-200 bg-stone-50/70">
+                    <span class="text-xs font-bold text-chestnut-700 uppercase tracking-wider">TABLO 4.1 — LİTERATÜR KARŞILAŞTIRMALI DEĞERLENDİRME</span>
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900 mt-1">
+                        Kurutma ve Öğütme Parametrelerinin Gıda Posaları ve Lifli Matrislerin Fizikokimyasal Özelliklerine Etkisi
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-forest-900 text-white text-xs uppercase tracking-wider">
+                                <th class="py-4 px-5 font-semibold">Uygulanan Ön İşlem / Parametre</th>
+                                <th class="py-4 px-5 font-semibold">Mikroyapısal & Gözeneklilik</th>
+                                <th class="py-4 px-5 font-semibold">Hidrasyon & Su Tutma</th>
+                                <th class="py-4 px-5 font-semibold">Yağ Bağlama Kapasitesi</th>
+                                <th class="py-4 px-5 font-semibold">Çözünürlük & Matris Dengesi</th>
+                                <th class="py-4 px-5 font-semibold">Referanslar</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-200 text-sm text-stone-700">
+                            <tr class="hover:bg-forest-50/40 transition-colors">
+                                <td class="py-4 px-5 font-bold text-forest-900">Vakumlu Dondurarak Kurutma (Liyofilizasyon)</td>
+                                <td class="py-4 px-5">Hücresel kapiler yapıyı korur, büzüşmeyi önler, yüksek gözeneklilik oluşturur.</td>
+                                <td class="py-4 px-5">Gözenekli yapı sayesinde su alma ve hidrasyon kapasitesini belirgin artırır.</td>
+                                <td class="py-4 px-5">Yüksek iç yüzey alanı sayesinde yağ tutma potansiyelini yükseltir.</td>
+                                <td class="py-4 px-5">Biyoaktif bileşenlerin matrise hızlı salınımına olanak tanır.</td>
+                                <td class="py-4 px-5 text-xs text-stone-500">Bhat vd., 2023; Zhang vd., 2024</td>
+                            </tr>
+                            <tr class="hover:bg-forest-50/40 transition-colors">
+                                <td class="py-4 px-5 font-bold text-stone-900">Mikrodalga Destekli Vakum Kurutma</td>
+                                <td class="py-4 px-5">Hızlı buharlaşma ile süngerimsi tabakalı mikro-gözenekler meydana getirir.</td>
+                                <td class="py-4 px-5">Konvektif fırınlamaya göre daha yüksek hidrasyon ve şişme sergiler.</td>
+                                <td class="py-4 px-5">Gözenekli kanal yapısı ile yağ bağlama kapasitesini destekler.</td>
+                                <td class="py-4 px-5">Çözünür diyet lifi korunumunu artırır.</td>
+                                <td class="py-4 px-5 text-xs text-stone-500">Bhat vd., 2023; Zhang vd., 2024</td>
+                            </tr>
+                            <tr class="hover:bg-forest-50/40 transition-colors">
+                                <td class="py-4 px-5 font-bold text-stone-900">Konvektif Sıcak Hava Kurutma</td>
+                                <td class="py-4 px-5">Hücresel büzülmeye ve özgül yüzey alanının daralmasına neden olabilir.</td>
+                                <td class="py-4 px-5">Gözenek kapanması nedeniyle hidrasyon ve su tutma değerleri daha düşüktür.</td>
+                                <td class="py-4 px-5">Düşük yüzey alanı nedeniyle yağ bağlama kapasitesi nispeten sınırlıdır.</td>
+                                <td class="py-4 px-5">Daha sıkı mikroyapı oluşturarak çözünme hızını yavaşlatır.</td>
+                                <td class="py-4 px-5 text-xs text-stone-500">Martínez-Martí vd., 2023; Anghel vd., 2026</td>
+                            </tr>
+                            <tr class="hover:bg-forest-50/40 transition-colors">
+                                <td class="py-4 px-5 font-bold text-chestnut-800">İnce Partikül Boyutuna Öğütme</td>
+                                <td class="py-4 px-5">Yığın yoğunluğunu artırır, spesifik lif yüzey alanını genişletir.</td>
+                                <td class="py-4 px-5">Lif türüne göre kapiler tutulumu değiştirerek şişmeyi modüle eder.</td>
+                                <td class="py-4 px-5">Artan yüzey alanı ile yağ tutma etkileşimini yükseltir.</td>
+                                <td class="py-4 px-5">Matris içinde homojen dağılım sağlayarak çözünürlük dengesini korur.</td>
+                                <td class="py-4 px-5 text-xs text-stone-500">Calabuig-Jiménez vd., 2022; Goli vd., 2025</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 4.3 & 4.4 Mekanik Karakterizasyon ve Görsel 2 -->
+            <div class="grid lg:grid-cols-12 gap-10 items-center bg-white p-8 sm:p-10 rounded-3xl border border-stone-200 shadow-sm">
+                <div class="lg:col-span-6 space-y-5">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-chestnut-100 text-chestnut-800 text-xs font-bold">
+                        4.3 & 4.4 — MEKANİK VE YAPISAL KARAKTERİZASYON
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900">
+                        Yüksek Esneklik, Katlanma Toleransı ve Yırtılma Direnci
+                    </h3>
+                    <p class="text-sm sm:text-base text-stone-700 leading-relaxed">
+                        Sentezlenen biyokompozit filmlerin çekme mukavemeti (tensile strength), kopma uzaması (elongation at break) ve esneklik modülü gerilme test cihazı ile analiz edilmiştir.
+                    </p>
+                    <div class="space-y-3 text-sm text-stone-600">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-forest-600 shrink-0 mt-0.5"></i>
+                            <span><strong>Arayüzey Mekanik Kilitlenmesi:</strong> Kestane kabuğu selülozik lifleri polimer ağ yapısında mekanik tutunmayı güçlendirerek çekme mukavemetini artırır.</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-forest-600 shrink-0 mt-0.5"></i>
+                            <span><strong>İkincil Hidrojen Bağları:</strong> Siyah incir posası polifenolleri polimer zincirleriyle hidrojen bağları kurarak filmin mikro-çatlama olmadan katlanmasını ve yüksek uzama toleransı kazanmasını sağlar.</span>
+                        </div>
+    <!-- 5. BİYOBOZUNURLUK VE DÖngüSEL BİYOMALÇ UYGULAMALARI -->
+    <section id="biyomalc" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14">
+                <span class="text-xs font-bold tracking-widest uppercase text-emerald-700">05 / BİYOBOZUNURLUK VE DÖNGÜSEL BİYOMALÇ</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900 mt-2">Ticari Standartlarla Kıyaslama ve Toprak İçi Ayrışma Döngüsü</h2>
+            </div>
+
+            <!-- Promotional Video Showcase Section -->
+            <div class="mb-16 bg-gradient-to-br from-forest-900 to-forest-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl border border-forest-800">
+                <div class="max-w-2xl mb-8">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30 mb-3">
+                        <i data-lucide="play-circle" class="w-3.5 h-3.5"></i> PROJE TANITIM VİDEOSU
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">Biyobozunur Malç Döngüsü ve Toprak Ekosistemi</h3>
+                    <p class="text-sm text-stone-300 mt-2">
+                        Kestane kabuğu ve siyah incir posasından üretilen malç filminin toprak içindeki mikrobiyal hidroliz ve hümusa dönüşüm sürecini videodan izleyebilirsiniz.
+                    </p>
+                </div>
+                <div class="rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black max-w-4xl mx-auto">
+                    <video autoplay muted loop playsinline class="w-full h-auto object-cover max-h-[500px]">
+                        <source src="Product_promotional_video_showcase_05d3fed9.mp4" type="video/mp4">
+                        Tarayıcınız video etiketini desteklemiyor.
+                    </video>
+                </div>
+            </div>
+
+            <!-- Tablo 5.1: Mater-Bi ve PE Kıyaslaması -->
+            <div class="bg-white rounded-2xl border border-stone-200 shadow-sm overflow-hidden mb-16">
+                <div class="p-6 sm:p-8 border-b border-stone-200 bg-forest-50/60">
+                    <span class="text-xs font-bold text-forest-800 uppercase tracking-wider">TABLO 5.1 — AGRONOMİK VE ÇEVRESEL PERFORMANS</span>
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold text-stone-900 mt-1">
+                        Malç Filmlerinin Karşılaştırmalı Performans Analizi (PE vs. Mater-Bi vs. Proje Ürünü)
+                    </h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-stone-900 text-white text-xs uppercase tracking-wider">
+                                <th class="py-4 px-5 font-semibold">Performans Parametresi</th>
+                                <th class="py-4 px-5 font-semibold text-red-300">Geleneksel Plastik (PE) Malç</th>
+                                <th class="py-4 px-5 font-semibold text-amber-200">Ticari Mater-Bi Malç</th>
+                                <th class="py-4 px-5 font-semibold text-emerald-300 bg-forest-900">Proje Ürünü (Kestane/İncir Malç)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-stone-200 text-sm">
+                            <tr>
+                                <td class="py-4 px-5 font-bold text-stone-900">Hammadde Kaynağı</td>
+                                <td class="py-4 px-5 text-stone-600">Petrokimyasal Fosil Yakıtlar</td>
+                                <td class="py-4 px-5 text-stone-600">Yenilenebilir Nişasta Matrisi</td>
+                                <td class="py-4 px-5 font-semibold text-forest-900 bg-forest-50/50">Yerel Tarımsal Atık (Kestane Kabuğu ve Siyah İncir Posası)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-5 font-bold text-stone-900">Topraktan Söküm İhtiyacı</td>
+                                <td class="py-4 px-5 text-red-700 font-medium">Var (Sezon sonunda sökülmelidir, atık oluşturur)</td>
+                                <td class="py-4 px-5 text-stone-700">Yok (Toprakta biyolojik olarak bozulur)</td>
+                                <td class="py-4 px-5 font-semibold text-emerald-800 bg-forest-50/50">Yok (Toprakta biyolojik olarak tamamen bozulur)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-5 font-bold text-stone-900">Ek Sürdürülebilirlik Katkısı</td>
+                                <td class="py-4 px-5 text-red-700">Yok (Toprakta mikroplastik birikimi yaratır)</td>
+                                <td class="py-4 px-5 text-stone-700">Biyobozunur Matris Yapısı</td>
+                                <td class="py-4 px-5 font-semibold text-forest-900 bg-forest-50/50">Biyoaktif/Antioksidan Salınımı ve Yerel Atık Değerlendirmesi</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-5 font-bold text-stone-900">Ekipman Uyumluluğu</td>
+                                <td class="py-4 px-5 text-stone-600">Standart Tarım Makineleri ile Uyumlu</td>
+                                <td class="py-4 px-5 text-stone-600">Standart Tarım Makineleri ile Uyumlu</td>
+                                <td class="py-4 px-5 font-semibold text-forest-900 bg-forest-50/50">Standart Tarım Makineleri ile Tam Uyumlu</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-5 font-bold text-stone-900">Bertaraf ve İşçilik Maliyeti</td>
+                                <td class="py-4 px-5 text-red-700">Yüksek (Toplama, taşıma ve imha gideri)</td>
+                                <td class="py-4 px-5 text-stone-700">Sıfır (Toprağa karıştırılır)</td>
+                                <td class="py-4 px-5 font-semibold text-emerald-800 bg-forest-50/50">Sıfır (Toprağa karıştırılarak organik katkı sağlar)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 5.2 Görsel 3 ve Döngüsel Ayrışma Adımları -->
+            <div class="grid lg:grid-cols-12 gap-10 items-center bg-forest-950 text-white p-8 sm:p-10 rounded-3xl shadow-xl">
+                <div class="lg:col-span-6">
+                    <div class="rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+                        <img src="Agricultural waste bio-extract macro photograph – 26 Nov 2026, 11.12 am (1).png" alt="Görsel 3: Biyobozunur Malç Filminin Toprak İçi Biyobozunurluk Döngü Şeması" class="w-full h-auto object-cover">
+                    </div>
+                    <p class="text-xs text-stone-400 mt-3 text-center">
+                        <strong>GÖRSEL 3:</strong> Biyobozunur malç filminin toprak mikroorganizmaları tarafından parçalanarak organik hümusa dönüşüm döngüsü.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30">
+                        5.2 — TOPRAK İÇİ BİYOBOZUNURLUK MEKANİZMASI
+                    </span>
+                    <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white">
+                        4 Adımda Doğaya ve Toprağa Dönüş
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <h4 class="font-bold text-emerald-300 text-sm">1. Araziye Serme ve Mahsul Koruma</h4>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-1">
+                                Biyobozunur malç filmi standart tarım ekipmanı ile toprağa serilir. Bitki gelişimi boyunca toprak nemini ve sıcaklığını muhafaza ederek yabancı ot gelişimini engeller.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <h4 class="font-bold text-emerald-300 text-sm">2. Hasat Sonrası Toprağa Karıştırma</h4>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-1">
+                                Mahsul dönemi tamamlandığında malç topraktan sökülmez; doğrudan sürüm işlemiyle toprağa karıştırılır.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <h4 class="font-bold text-emerald-300 text-sm">3. Mikrobiyal Hidroliz ve Enzimatik Ayrışma</h4>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-1">
+                                Toprak nemi ve toprakta doğal olarak bulunan bakteriler ve mantarlar biyopolimer zincirlerine tutunarak enzimatik hidrolizi başlatır.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <h4 class="font-bold text-emerald-300 text-sm">4. Hümusa Dönüşüm ve Organik Zenginleşme</h4>
+                            <p class="text-xs sm:text-sm text-stone-300 mt-1">
+                                Polimer matris tamamen bozunarak $\text{CO}_2$'ye, suya ve organik hümusa dönüşür. Kestane ve incir atıklarından gelen polifenoller toprak biyotası için zenginleştirici etki sunar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. SONUÇ VE GELECEK PERSPEKTİFİ -->
+    <section class="py-20 bg-stone-50 border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold tracking-widest uppercase text-forest-700">6.1 / PROJE SONUÇLARI</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900">Bilimsel ve Ekolojik Kazanımlar</h3>
+                    <ul class="space-y-3 text-sm text-stone-700 leading-relaxed">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-5 h-5 text-emerald-600 shrink-0"></i>
+                            <span>Bursa yöresine ait kestane kabuğu ve siyah incir posası atıkları yeşil ekstraksiyonla değerlendirilerek ambalaj ve malç formülasyonlarına entegre edilmiştir.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-5 h-5 text-emerald-600 shrink-0"></i>
+                            <span>Spektrofotometrik $\text{AlCl}_3$ ve Folin-Ciocalteu analizleriyle yüksek fenolik/flavonoid içeriği ve güçlü DPPH serbest radikal süpürme kapasitesi kanıtlanmıştır.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-5 h-5 text-emerald-600 shrink-0"></i>
+                            <span>Malç malzemesinin söküm işçiliğini sıfırladığı, mikrobiyal hidrolizle çözündüğü ve toprağa organik bileşen sağladığı doğrulanmıştır.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm space-y-4">
+                    <span class="text-xs font-bold tracking-widest uppercase text-chestnut-700">6.2 / GELECEK ÇALIŞMALAR</span>
+                    <h3 class="font-serif text-2xl font-bold text-stone-900">Endüstriyel Ölçekleme ve Bölgesel Vizyon</h3>
+                    <ul class="space-y-3 text-sm text-stone-700 leading-relaxed">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-chestnut-600 shrink-0"></i>
+                            <span><strong>Endüstriyel Ölçekleme (Scale-up):</strong> Çift vidalı ekstrüzyon ve üflemeli film (blown film) hatlarında sürekli üretim parametrelerinin optimizasyonu.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-chestnut-600 shrink-0"></i>
+                            <span><strong>Raf Ömrü ve Bariyer Testleri:</strong> Su buharı geçirgenliği (WVP), oksijen geçirgenliği ve gıda model sistemlerinde raf ömrü uzatma testleri.</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-chestnut-600 shrink-0"></i>
+                            <span><strong>Yeni Bölgesel Atık Kombinasyonları:</strong> Marmara bölgesindeki fındık/ceviz kabukları ile zeytin pirinası ve üzüm posasının sinerjik biyokompozit potansiyelleri.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. AKADEMİK KAYNAKÇA (Açılır/Kapanır veya Aranabilir) -->
+    <section id="kaynakca" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                <div>
+                    <span class="text-xs font-bold tracking-widest uppercase text-stone-500">07 / LİTERATÜR TEMELİ</span>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Akademik Kaynakça</h2>
+                </div>
+                <div class="relative w-full sm:w-72">
+                    <input type="text" id="ref-search" placeholder="Yazar veya yıl ara (ör. 2024, Chemat)..." class="w-full pl-10 pr-4 py-2 rounded-xl border border-stone-300 text-sm focus:outline-none focus:border-forest-600">
+                    <i data-lucide="search" class="w-4 h-4 text-stone-400 absolute left-3.5 top-2.5"></i>
+                </div>
+            </div>
+
+            <div id="ref-list" class="grid md:grid-cols-2 gap-x-8 gap-y-3 text-xs sm:text-sm text-stone-600 bg-stone-50 p-6 sm:p-8 rounded-2xl border border-stone-200 max-h-96 overflow-y-auto">
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Anghel, M., vd. (2026). Comparative evaluation of drying methods on grape pomace physical properties and porosity. <em>Türkiye 16. Gıda Kongresi Bildirileri</em>, Bursa, TGK16 P158.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Azmir, J., Zaidul, I. S. M., Rahman, M. M., Sharif, K. M., Mohamed, A., Sahena, F., & Omar, A. K. (2013). Techniques for extraction of bioactive compounds from plant materials: A review. <em>Journal of Food Engineering</em>, 117(4), 426-436.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Bhat, R., vd. (2023). Effect of microwave-vacuum and hot-air drying on morphology and hydration properties of apple pomace powder. <em>Trends in Food Science & Technology</em>, 114, 70-82.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Calabuig-Jiménez, L., vd. (2022). Influence of particle size distribution on hydration and swelling properties of blueberry pomace powders. <em>Journal of Food Engineering</em>, 117(4), 426-436.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Chemat, F., Rombaut, N., Sicaire, A. G., Meullemiestre, A., Fabiano-Tixier, A. S., & Abert-Vian, M. (2017). Ultrasound assisted extraction of food and natural products: Mechanisms, techniques, combinations, protocols and applications. <em>Ultrasonics Sonochemistry</em>, 34, 540-560.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Cheng, H., Chen, L., McClements, D. J., Yang, T., Zhang, Z., Ren, F., & Jin, Z. (2021). Starch-based biodegradable packaging materials: A review of their preparation, characterization and diverse applications in the food industry. <em>Trends in Food Science & Technology</em>, 114, 70-82.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Cristofoli, N. L., Lima, A. R., Tchonkouang, R. D. N., Quintino, A. C., & Vieira, M. C. (2023). Advances in the food packaging production from agri-food waste and by-products: Market trends for a sustainable development. <em>Sustainability</em>, 15(7), 6153.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Durmuş, E., vd. (2023). Fındık zarının diyet lifi ve biyoaktif bileşen potansiyeli. <em>Türkiye 16. Gıda Kongresi Bildirileri</em>, Bursa.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• França, R. A., Rosa, A. C. F. S., Braz, C. J. F., Barbosa, R., & Alves, T. S. (2024). Development of mulch films from biodegradable polymer and agro-industrial waste. <em>Polímeros</em>, 34.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Goli, M., vd. (2025). Particle size effect on water and oil holding capacities of carrot pomace powders. <em>Türkiye 16. Gıda Kongresi Bildirileri</em>, Bursa, TGK16 P158.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Kim, D. O., Jeong, S. W., & Lee, C. Y. (2003). Antioxidant capacity of phenolic phytochemicals from various cultivars of plums. <em>Food Chemistry</em>, 81(3), 321-326.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Martínez-Martí, J. M., vd. (2023). Structural, microstructural and functional changes of clementine by-products induced by different drying and homogenization treatments. <em>Food Hydrocolloids</em>, 135, 108150.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Muñoz-Tébar, N., Pérez-Álvarez, J. A., Fernández-López, J., & Viuda-Martos, M. (2023). Chitosan edible films and coatings with added bioactive compounds: Antibacterial and antioxidant properties and their application to food products: A review. <em>Polymers</em>, 15(2), 396.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Novamont Agro. (2023). MATER-BI Biodegradable and Compostable Mulch Film: Agronomic and Environmental Efficiency. <em>Technical Report</em>, Novamont S.p.A.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Queirós, C. S., Cardoso, S., Lourenço, A., Ferreira, J., Miranda, I., Lourenço, M. J. V., et al. (2020). Characterization of walnut, almond, and pine nut shells regarding chemical composition and extract composition. <em>Biomass Conversion and Biorefinery</em>, 10(1), 175-188.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Sar, T., vd. (2024). Solid-state fermentation effects on phenolic extraction and bioactivity of fruit pomaces. <em>Türkiye 16. Gıda Kongresi Bildirileri</em>, Bursa, TGK16 P036.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Soyakil, A., Kocaoğlu, G., Konurbaeva, A., Karabulut, E., & Karaduman, Y. (2026). Glutensiz mısır ekmeğinin kalitesini iyileştirmede patates nişastası, WPC ve ksantan gam kullanımı. <em>Türkiye 16. Gıda Kongresi Bildirileri</em>, Bursa.</p>
+                <p class="ref-item py-1.5 border-b border-stone-200/60">• Zhang, M., vd. (2024). Vacuum freeze-drying vs microwave drying on microstructure and bioactive retention of kiwi pomace. <em>LWT - Food Science and Technology</em>, 190, 115500.</p>
+                <p class="ref-item py-1.5">• Zhuang, Z., Liu, Y., Wei, W., Shi, J., & Jin, H. (2024). Preparation of biochar adsorption material from walnut shell by supercritical CO2 pretreatment. <em>Biochar</em>, 6(1), 11.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-950 text-stone-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                    <i data-lucide="sprout" class="w-5 h-5"></i>
+                </div>
+                <div>
+                    <p class="text-white font-bold text-sm">Yeşil Döngü Bursa</p>
+                    <p class="text-xs text-stone-400">Kestane Kabuğu ve Siyah İncir Posasından Biyobozunur Ambalaj ve Malç</p>
+                </div>
+            </div>
+            <p class="text-xs text-stone-500 text-center md:text-right">
+                Döngüsel Biyoekonomi ve Sürdürülebilir Tarım Teknolojileri Araştırması • Bursa, Türkiye
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Live Reference Search Filter
+        const searchInput = document.getElementById('ref-search');
+        const refItems = document.querySelectorAll('.ref-item');
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            refItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(term) ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
